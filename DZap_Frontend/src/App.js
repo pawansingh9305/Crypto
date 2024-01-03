@@ -9,11 +9,16 @@ function App() {
     const [targetCurrency, setTargetCurrency] = useState('usd');
     const [convertedAmount, setConvertedAmount] = useState(null);
 
-    useEffect(() => {
+    function getList(){
         axios.get('https://crypto-server-z9gs.onrender.com/api/crypto-list')
             .then(response => setCryptoList(response.data))
             .catch(error => console.error(error));
-    }, [cryptoList]);
+
+    }
+
+    useEffect(() => {
+        getList();
+    }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();
