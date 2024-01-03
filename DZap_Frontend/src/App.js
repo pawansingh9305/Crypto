@@ -10,14 +10,14 @@ function App() {
     const [convertedAmount, setConvertedAmount] = useState(null);
 
     useEffect(() => {
-        axios.get('https://crypto-beryl-five.vercel.app/api/crypto-list')
+        axios.get('https://crypto-server-z9gs.onrender.com/api/crypto-list')
             .then(response => setCryptoList(response.data))
             .catch(error => console.error(error));
     }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.get('https://crypto-beryl-five.vercel.app/api/convert', { params: { sourceCrypto, amount, targetCurrency } })
+        axios.get('https://crypto-server-z9gs.onrender.com/api/convert', { params: { sourceCrypto, amount, targetCurrency } })
             .then(response => setConvertedAmount(response.data.convertedAmount))
             .catch(error => console.error(error));
     };
