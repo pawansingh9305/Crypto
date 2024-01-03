@@ -13,7 +13,7 @@ function App() {
         axios.get('https://crypto-server-z9gs.onrender.com/api/crypto-list')
             .then(response => setCryptoList(response.data))
             .catch(error => console.error(error));
-    }, []);
+    }, [cryptoList]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
